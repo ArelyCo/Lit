@@ -1,13 +1,14 @@
-from flask import Flask, render_template #Importar flask
+from flask import Flask, render_template
 
-app = Flask("holaMundo")  #Variable (Objeto)
+app = Flask(
+    __name__,
+    template_folder='../templates'
+)
 
-# Definimos la ruta principal (el home)
-@app.route('/')  #Para tener diferentes rutas
+@app.route('/')
 def home():
-    return render_template('index.html') #para el html
+    return render_template('index.html')
 
-# Iniciamos el servidor
-if __name__ == '__main__': 
-    app.run(debug=True,host='0.0.0.0', port='5000') #Corre la aplicacion en un servidor
+if __name__ == "__main__":
+    app.run(debug=True)
     
